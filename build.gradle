@@ -1,0 +1,60 @@
+plugins {
+    id "java"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+tasks.withType(JavaCompile)*.options*.encoding = 'UTF-8'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io/" }
+    maven { url "https://jcenter.bintray.com/" }
+}
+
+configurations {
+    include
+    implementation.extendsFrom include
+}
+
+dependencies {
+
+    include 'com.google.code.gson:gson:2.9.0'
+    include 'org.ow2.asm:asm-tree:9.3'
+
+    include 'commons-io:commons-io:2.11.0'
+    include 'commons-cli:commons-cli:1.5.0'
+    include 'net.java.dev.jna:jna:5.12.1'
+
+    include 'com.formdev:flatlaf:2.3'
+
+    include 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0'
+}
+
+task shadowJar(type: Jar) {
+    classifier 'release'
+    with jar
+    from {
+        configurations.include.collect {
+            zipTree(it).matching {
+                exclude 'META-INF/**', 'module-info.class'
+            }
+        }
+    }
+
+    manifest {
+        attributes(
+                "Main-Class": "me.earthhack.installer.main.Main"
+        )
+    }
+}
+
+
+jar.dependsOn(shadowJar)
