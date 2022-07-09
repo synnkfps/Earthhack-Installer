@@ -1,5 +1,8 @@
 package me.earthhack.installer.gui;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 import javax.swing.JFrame;
@@ -10,6 +13,7 @@ public class InstallerFrame {
    private final JFrame frame;
 
    public InstallerFrame() {
+      FlatLightLaf.setup(new FlatDarculaLaf());
       this.frame = new JFrame("3arthh4ck-Installer");
       this.frame.setDefaultCloseOperation(3);
       JPanel panel = new JPanel();

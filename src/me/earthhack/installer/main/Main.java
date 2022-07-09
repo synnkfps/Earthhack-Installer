@@ -1,6 +1,11 @@
 package me.earthhack.installer.main;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import impl.ClientMain;
+import impl.ServerMain;
 
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -11,17 +16,16 @@ public class Main {
       /**
        * @TODO: Add ServerMain and ClientMain System...
        */
-      //  if (args.length != 0) {
-      //    if (args[0].equalsIgnoreCase("server")) {
-      //       ServerMain.main(args);
-      //       return;
-      //    }
-      //    if (args[0].equalsIgnoreCase("client")) {
-      //       ClientMain.main(args);
-      //       return;
-      //    }
-      // }
-
+        if (args.length != 0) {
+          if (args[0].equalsIgnoreCase("server")) {
+             ServerMain.main(args);
+             return;
+          }
+          if (args[0].equalsIgnoreCase("client")) {
+             ClientMain.main(args);
+             return;
+      }
+      }
       ClassLoader bootCl = Main.class.getClassLoader();
       URL[] urls;
       if (bootCl instanceof URLClassLoader) {

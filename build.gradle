@@ -33,6 +33,8 @@ dependencies {
     include 'commons-cli:commons-cli:1.5.0'
     include 'net.java.dev.jna:jna:5.12.1'
 
+    implementation 'com.google.guava:guava:23.0'
+
     include 'com.formdev:flatlaf:2.3'
 
     include 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0'
