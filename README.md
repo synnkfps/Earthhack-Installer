@@ -1,4 +1,5 @@
 ![](phobos.jpg)
+**Note: The "installer" isn't working at all because I still trying to figure out what it does!** 
 
 ## Earthhack Installer (dump)
 ### Dumped it from 1.6.2 "leaked" .jar
@@ -18,6 +19,6 @@ Downloaded a random .jar that I've found on github, supposedly the first leak of
 Pre-Built Jar [here](https://github.com/synnkfps/Earthhack-Installer-Dumped/releases/tag/Earthhack-Installer-Laf)
 
 I did this for testing purposes, and for learning Java and Gradle too! <br>
-**Note: The "installer" isn't working at moment because I still didn't added the server connection system, later I do that!** <br>
+
 
 ### Enjoy!
