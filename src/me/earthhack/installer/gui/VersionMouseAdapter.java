@@ -1,9 +1,8 @@
 package me.earthhack.installer.gui;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JButton;
-import javax.swing.JTable;
 
 public class VersionMouseAdapter extends MouseAdapter {
    private final JTable table;
@@ -18,24 +17,25 @@ public class VersionMouseAdapter extends MouseAdapter {
       this.data = data;
    }
 
+   @Override
    public void mouseClicked(MouseEvent evt) {
-      int row = this.table.rowAtPoint(evt.getPoint());
+      int row = table.rowAtPoint(evt.getPoint());
       if (row >= 0) {
-         Object[] o = this.data[row];
-         if (!(Boolean)o[3]) {
-            this.install.setEnabled(false);
-            this.uninstall.setEnabled(false);
-         } else if ((Boolean)o[2]) {
-            this.install.setEnabled(false);
-            this.uninstall.setEnabled(true);
+         Object[] o = data[row];
+         if (! (boolean) o[3]) {
+            install.setEnabled(false);
+            uninstall.setEnabled(false);
+         } else if ((boolean) o[2]) {
+            install.setEnabled(false);
+            uninstall.setEnabled(true);
          } else {
-            this.install.setEnabled(true);
-            this.uninstall.setEnabled(false);
+            install.setEnabled(true);
+            uninstall.setEnabled(false);
          }
       } else {
-         this.install.setEnabled(false);
-         this.uninstall.setEnabled(false);
+         install.setEnabled(false);
+         uninstall.setEnabled(false);
       }
-
    }
+
 }

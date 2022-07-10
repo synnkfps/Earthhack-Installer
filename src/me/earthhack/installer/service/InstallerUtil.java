@@ -32,10 +32,8 @@ public class InstallerUtil {
       JsonArray array = libs.getAsJsonArray();
       boolean hasAsm = false;
       boolean hasLaunch = false;
-      Iterator var5 = array.iterator();
 
-      while(var5.hasNext()) {
-         JsonElement element = (JsonElement)var5.next();
+      for (JsonElement element : array) {
          JsonElement name = element.getAsJsonObject().get("name");
          if (name != null) {
             if (name.getAsString().equals("org.ow2.asm:asm-debug-all:5.2")) {
@@ -83,7 +81,7 @@ public class InstallerUtil {
       JsonElement libs = o.get("libraries");
       if (libs != null) {
          JsonArray array = libs.getAsJsonArray();
-         Iterator itr = array.iterator();
+         Iterator<JsonElement> itr = array.iterator();
 
          while(true) {
             JsonElement name;
@@ -107,7 +105,7 @@ public class InstallerUtil {
       JsonElement libs = o.get("libraries");
       if (libs != null) {
          JsonArray array = libs.getAsJsonArray();
-         Iterator itr = array.iterator();
+         Iterator<JsonElement> itr = array.iterator();
 
          while(itr.hasNext()) {
             JsonObject library = ((JsonElement)itr.next()).getAsJsonObject();
