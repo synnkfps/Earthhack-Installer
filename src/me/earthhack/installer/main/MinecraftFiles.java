@@ -34,12 +34,13 @@ public class MinecraftFiles {
       if (this.minecraft != null) {
          this.libraries = this.minecraft + "libraries" + File.separator;
          this.versions = this.minecraft + "versions" + File.separator;
-      } else if (args.length < 3) {
-         throw new IllegalStateException("Unknown OS, please specify minecraft, libraries and versions folders as main args!");
-      } else {
-         this.minecraft = args[0];
-         this.libraries = args[1];
-         this.versions = args[2];
       }
+      if (args.length < 3) {
+         throw new IllegalStateException("Unknown OS, please specify minecraft, libraries and versions folders as main args!");
+      }
+      this.minecraft = args[0];
+      this.libraries = args[1];
+      this.versions = args[2];
+
    }
 }

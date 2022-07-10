@@ -37,7 +37,7 @@ public class Mapping
         final Map<String, List<MethodMapping>> methods = new HashMap<String, List<MethodMapping>>();
         final Map<String, String> classes = new HashMap<String, String>();
         final Map<String, String> fields = new HashMap<String, String>();
-        final Map<String, String> constants = new HashMap<String, String>();
+        final Map<String, String> constants = new HashMap<>();
         try (final BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Mapping.class.getClassLoader().getResourceAsStream(name))))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -66,7 +66,6 @@ public class Mapping
                             continue;
                         }
                         methods.computeIfAbsent(mns[1], v -> new ArrayList(1)).add(new MethodMapping(mnn[0], mnn[1], mnn[2]));
-                        continue;
                     }
                 }
             }

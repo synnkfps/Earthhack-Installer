@@ -5,9 +5,9 @@ import me.earthhack.installer.version.Version;
 public interface Installer {
    boolean refreshVersions();
 
-   boolean install(Version var1);
+   boolean install(Version version);
 
-   boolean uninstall(Version var1);
+   boolean uninstall(Version version);
 
-   boolean update(boolean var1);
+   boolean update(boolean forge);
 }

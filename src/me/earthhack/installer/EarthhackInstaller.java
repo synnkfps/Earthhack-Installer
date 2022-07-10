@@ -16,21 +16,20 @@ import me.earthhack.installer.util.*;
 import me.earthhack.installer.version.Version;
 import me.earthhack.installer.version.VersionFinder;
 
+@SuppressWarnings("unused")
 public class EarthhackInstaller implements Installer {
    private final MinecraftFiles files = new MinecraftFiles();
    private final InstallerFrame gui = new InstallerFrame();
    private InstallerService service;
 
    public void launch(LibraryClassLoader classLoader, String[] args) {
-      InstallerFrame var10000 = this.gui;
-      SwingUtilities.invokeLater(var10000::display);
+      SwingUtilities.invokeLater(this.gui::display);
       this.wrapErrorGui(() -> {
          this.files.findFiles(args);
          LibraryFinder libraryFinder = new LibraryFinder();
-         Iterator var4 = libraryFinder.findLibraries(this.files).iterator();
 
-         while(var4.hasNext()) {
-            Library library = (Library)var4.next();
+         for (Object o : libraryFinder.findLibraries(this.files)) {
+            Library library = (Library) o;
             classLoader.installLibrary(library);
          }
 
