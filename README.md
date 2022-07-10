@@ -1,4 +1,4 @@
-![](phobos.jpg)
+![](phobos.jpg) <br>
 **Note: The "installer" isn't working at all because I still trying to figure out what it does!** 
 
 ## Earthhack Installer (dump)
